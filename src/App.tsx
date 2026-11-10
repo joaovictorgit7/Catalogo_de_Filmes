@@ -1,15 +1,24 @@
-import "./App.css";
+import { useEffect, useState } from "react";
 
-// Componente do React é assim  
-// 1) ele é uma função (Em códigos muitos antigos, pode ser uma classe)
-// 2) Ele tem um return
-// Fora do Return / Código JavaScript
-// Dentro do Return / Código "HTML"
 function App() {
+  const [titulos, setTitulos] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch("https://api.themoviedb.org/3/movie/popular?language=pt-BR", {
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setTitulos(data.results.map((f: { title: string }) => f.title)));
+  }, []);
+
   return (
-    <div>
-      <h1>Olá React</h1>
-    </div>
+    <ul>
+      {titulos.map((t) => (
+        <li key={t}>{t}</li>
+      ))}
+    </ul>
   );
 }
 

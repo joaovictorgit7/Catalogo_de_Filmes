@@ -1,4 +1,4 @@
-import type { MoviesResponse } from "../types/movie";
+import type { MovieDetail, MoviesResponse } from "../types/movie";
 
 const BASE_URL = "https://api.themoviedb.org/3";
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
@@ -18,3 +18,8 @@ async function request<T>(endpoint: string): Promise<T> {
 export function getPopularMovies(page = 1) {
   return request<MoviesResponse>(`/movie/popular?language=pt-BR&page=${page}`);
 }
+
+export function getMovieDetails(id: number) {
+  return request<MovieDetail>(`/movie/${id}?language=pt-BR`);
+}
+

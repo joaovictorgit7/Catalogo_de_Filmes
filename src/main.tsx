@@ -1,8 +1,13 @@
-import { createRoot } from 'react-dom/client' //ferramenta do react, que cria o que vai ser mostrado na tela.
-import './index.css' // Arquivos de css globais que pode ser aplicados para todos os componentes, forma de reutilzar estilos. 
-import App from './App.tsx' // App - Componente
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom"; 
+import App from "./App"; 
+import "./index.css";
 
-createRoot(document.getElementById('root')!).render( 
-  //tudo que colcar aqui dentro ele vai renderizar na tela. 
-    <App />
-)
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);

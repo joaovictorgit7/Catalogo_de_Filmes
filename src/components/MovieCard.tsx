@@ -1,0 +1,31 @@
+import type { Movie } from "../types/movie"; 
+import { IMAGE_BASE_URL } from "../services/tmdb"; 
+
+interface MovieCardProps {
+  movie: Movie;
+}
+
+function MovieCard({ movie }: MovieCardProps) {
+  const year = movie.release_date ? movie.release_date.slice(0, 4) : "—";
+
+  return (
+    <article className="movie-card">
+      {movie.poster_path ? (
+        <img
+          src={`${IMAGE_BASE_URL}${movie.poster_path}`}
+          alt={`Pôster de ${movie.title}`}
+        />
+      ) : (
+        <div className="movie-card__no-poster">Sem pôster</div>
+      )}
+      <div className="movie-card__info">
+        <h3>{movie.title}</h3>
+        <span>
+          {year} · ⭐ {movie.vote_average.toFixed(1)}
+        </span>
+      </div>
+    </article>
+  );
+}
+
+export default MovieCard;

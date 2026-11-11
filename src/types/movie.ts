@@ -14,3 +14,14 @@ export interface Movie {
   release_date: string;        // data como texto, "1999-10-15"
   vote_average: number;        // nota, como 8.4
 }
+
+export interface Genre {
+  id: number;
+  name: string;
+}
+
+export interface MovieDetail extends Movie {
+  runtime: number | null;
+  genres: Genre[];
+  tagline: string;
+}

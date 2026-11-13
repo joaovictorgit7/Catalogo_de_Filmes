@@ -7,9 +7,8 @@ function Header() {
         🎬 Catálogo de Filmes
       </NavLink>
       <nav className="header__nav">
-        <NavLink to="/" end>
-          Início
-        </NavLink>
+        <NavLink to="/" end>Início</NavLink>
+        <NavLink to="/busca">Busca</NavLink>
       </nav>
     </header>
   );

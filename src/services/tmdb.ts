@@ -23,3 +23,8 @@ export function getMovieDetails(id: number) {
   return request<MovieDetail>(`/movie/${id}?language=pt-BR`);
 }
 
+export function searchMovies(query: string, page = 1) {
+  return request<MoviesResponse>(
+    `/search/movie?language=pt-BR&query=${encodeURIComponent(query)}&page=${page}`
+  );
+}

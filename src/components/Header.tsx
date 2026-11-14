@@ -11,11 +11,10 @@ function Header() {
       </NavLink>
 
       <nav className="header__nav">
-        <NavLink to="/" end>
-          Início
-        </NavLink>
+        <NavLink to="/" end>Início</NavLink>
         <NavLink to="/busca">Busca</NavLink>
         <NavLink to="/favoritos">Favoritos ({favorites.length})</NavLink>
+        <NavLink to="/sobre">Sobre</NavLink>
       </nav>
     </header>
   );

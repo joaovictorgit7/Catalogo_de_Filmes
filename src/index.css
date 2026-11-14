@@ -214,3 +214,42 @@ a {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+.about {
+  max-width: 800px;
+}
+.about h2 {
+  margin-top: 32px;
+}
+.about__tags,
+.about__members {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+}
+.about__tags li {
+  background: #2a2e38;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+.about__members li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+  padding: 14px 16px;
+  background: #1a1d24;
+  border-radius: 10px;
+}
+.about__members span {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+.about__credit {
+  margin-top: 32px;
+  color: #888;
+  font-size: 0.85rem;
+}

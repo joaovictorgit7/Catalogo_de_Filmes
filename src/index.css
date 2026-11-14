@@ -91,9 +91,13 @@ a {
 
 .movie-card-link {
   display: block;
+}
+
+.movie-card-wrapper {
+  position: relative;
   transition: transform 0.15s;
 }
-.movie-card-link:hover {
+.movie-card-wrapper:hover {
   transform: translateY(-4px);
 }
 
@@ -158,4 +162,32 @@ a {
 .search-bar:focus {
   outline: none;
   border-color: #6c7bff;
+}
+
+.favorite-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  background: rgba(15, 17, 21, 0.75);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.favorite-button:hover {
+  transform: scale(1.15);
+}
+.movie-details__actions .favorite-button {
+  position: static;
+  background: #2a2e38;
+  margin-bottom: 8px;
+}
+.text-link {
+  color: #6c7bff;
+  text-decoration: underline;
 }

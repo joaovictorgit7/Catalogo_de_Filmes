@@ -1,5 +1,6 @@
 import type { MovieDetail } from "../types/movie";
 import { IMAGE_BASE_URL } from "../services/tmdb";
+import FavoriteButton from "./FavoriteButton";
 
 interface MovieDetailsProps {
   movie: MovieDetail;
@@ -29,6 +30,9 @@ function MovieDetails({ movie }: MovieDetailsProps) {
         <h1>
           {movie.title} <small>({year})</small>
         </h1>
+
+        <FavoriteButton movie={movie} />
+
         {movie.tagline && (
           <p className="movie-details__tagline">{movie.tagline}</p>
         )}

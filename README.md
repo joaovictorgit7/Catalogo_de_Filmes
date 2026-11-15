@@ -82,8 +82,6 @@ Para gerar a versão de produção: `npm run build`.
 
 ## Componentes e responsáveis
 
-> 👉 PREENCHER: troque os nomes pelos integrantes do grupo e ajuste a divisão, se necessário.
-
 | Integrante | Componentes | Descrição |
 |---|---|---|
 | Keila | `Header` | Menu de navegação com contador de favoritos |
@@ -119,8 +117,6 @@ src/
 
 ## Telas
 
-> 👉 PREENCHER: salve os prints na pasta `docs/prints/` com estes nomes.
-
 ### Home
 ![Home](docs/prints/home.png)
 
@@ -135,10 +131,6 @@ src/
 
 ### Sobre
 ![Sobre](docs/prints/sobre.png)
-
-## Deploy
-
-> 👉 OPCIONAL: se publicarem na Vercel ou Netlify, coloque o link aqui.
 
 ## Créditos
 

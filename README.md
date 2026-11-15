@@ -1,6 +1,5 @@
 # 🎬 Catálogo de Filmes
 
-
 Aplicação web desenvolvida em **React + TypeScript** para o Trabalho Final da disciplina **Front-end Frameworks** (Ciência da Computação, AV2).
 
 O app consome a API do [TMDB](https://www.themoviedb.org/) para listar filmes populares, buscar por título, ver detalhes e salvar favoritos.

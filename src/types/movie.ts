@@ -1,3 +1,5 @@
+// Nesse arquivos, definimos os tipos de dados que serão utilizados em nosso projeto, relacionados a filmes e suas informações.
+
 export interface MoviesResponse {
   page: number;           // página atual
   results: Movie[];       // lista de filmes
@@ -5,7 +7,6 @@ export interface MoviesResponse {
   total_results: number;  // total de filmes
 }
 
-// Movie não guarda os dados dos filmes, ele descreve o formato deles. Os dados de verdade vêm da API do TMDB, e o Movie diz como cada filme é: quais campos tem e de que tipo.
 export interface Movie {
   id: number;                  // identificador único do filme
   title: string;               // nome do filme

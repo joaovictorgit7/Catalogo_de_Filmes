@@ -86,13 +86,13 @@ Para gerar a versão de produção: `npm run build`.
 
 | Integrante | Componentes | Descrição |
 |---|---|---|
-| Integrante 1 | `Header` | Menu de navegação com contador de favoritos |
+| Keila | `Header` | Menu de navegação com contador de favoritos |
 | | `SearchBar` | Campo de busca controlado |
-| Integrante 2 | `MovieCard` | Card com pôster, título, ano e nota |
+| Fabio | `MovieCard` | Card com pôster, título, ano e nota |
 | | `MovieGrid` | Grade que renderiza a lista de cards |
-| Integrante 3 | `MovieDetails` | Conteúdo completo da página de detalhes |
+| João Victor | `MovieDetails` | Conteúdo completo da página de detalhes |
 | | `FavoriteButton` | Botão de favoritar (coração) |
-| Integrante 4 | `Pagination` | Botões de página anterior e próxima |
+| João Pedro | `Pagination` | Botões de página anterior e próxima |
 | | `StatusMessage` | Mensagem de carregamento ou de erro |
 
 ## Hooks

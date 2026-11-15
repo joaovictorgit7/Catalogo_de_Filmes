@@ -31,7 +31,9 @@ function MovieDetails({ movie }: MovieDetailsProps) {
           {movie.title} <small>({year})</small>
         </h1>
 
-        <FavoriteButton movie={movie} />
+        <div className="movie-details__actions">
+          <FavoriteButton movie={movie} />
+        </div>
 
         {movie.tagline && (
           <p className="movie-details__tagline">{movie.tagline}</p>

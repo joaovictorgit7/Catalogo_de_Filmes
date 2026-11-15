@@ -4,10 +4,10 @@ interface Member {
 }
 
 const members: Member[] = [
-  { name: "Integrante 1", components: ["Header", "SearchBar"] },
-  { name: "Integrante 2", components: ["MovieCard", "MovieGrid"] },
-  { name: "Integrante 3", components: ["MovieDetails", "FavoriteButton"] },
-  { name: "Integrante 4", components: ["Pagination", "StatusMessage"] },
+  { name: "Keila", components: ["Header", "SearchBar"] },
+  { name: "Fabio", components: ["MovieCard", "MovieGrid"] },
+  { name: "João Victor", components: ["MovieDetails", "FavoriteButton"] },
+  { name: "João Pedro", components: ["Pagination", "StatusMessage"] },
 ];
 
 const technologies = ["React", "TypeScript", "Vite", "React Router", "API do TMDB"];

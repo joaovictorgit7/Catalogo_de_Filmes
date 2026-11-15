@@ -1,75 +1,145 @@
-# React + TypeScript + Vite
+# 🎬 Catálogo de Filmes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida em **React + TypeScript** para o Trabalho Final da disciplina **Front-end Frameworks** (Ciência da Computação, AV2).
 
-Currently, two official plugins are available:
+O app consome a API do [TMDB](https://www.themoviedb.org/) para listar filmes populares, buscar por título, ver detalhes e salvar favoritos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Lista de filmes populares com **paginação**
+- **Busca por título** com *debounce* (a API só é chamada quando o usuário para de digitar)
+- Página de **detalhes** do filme (pôster, nota, duração, gêneros e sinopse)
+- **Favoritos** salvos no navegador (`localStorage`), com contador no menu
+- Tratamento de carregamento e de erros
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/) 
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- [React Router](https://reactrouter.com/)
+- [API do TMDB](https://developer.themoviedb.org/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Requisitos do trabalho
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Requisito | Atendimento |
+|---|---|
+| Mínimo de 8 componentes funcionais (2 por integrante) | 8 componentes (veja a tabela abaixo) |
+| Mínimo de 5 páginas distintas | Home, Busca, Detalhes, Favoritos e Sobre |
+| Mínimo de 4 hooks diferentes | `useState`, `useEffect`, `useDebounce` e `useFavorites` (além de `useParams`, `useNavigate` e `useSearchParams`, do React Router) |
+| TypeScript obrigatório | Todo o projeto em `.ts` / `.tsx`, com interfaces para os dados e props tipadas |
+| Integração com API (opcional) | API do TMDB |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Como instalar e usar
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) 18 ou superior
+- Uma conta gratuita no [TMDB](https://www.themoviedb.org/) para gerar o token da API
+
+### Passo a passo
+
+1. Clone o repositório e entre na pasta:
+
+   ```bash
+   git clone https://github.com/joaovictorgit7/Catalogo_de_Filmes.git
+   cd Catalogo_de_Filmes
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Gere o token da API: no TMDB, vá em **Configurações → API** e copie o **Token de Acesso de Leitura da API** (o texto longo que começa com `eyJ`).
+
+4. Crie um arquivo `.env` na raiz do projeto (use o `.env.example` como modelo):
+
+   ```
+   VITE_TMDB_TOKEN=cole_aqui_o_seu_token
+   ```
+
+5. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Abra o endereço mostrado no terminal (normalmente `http://localhost:5173`).
+
+Para gerar a versão de produção: `npm run build`.
+
+## Páginas
+
+| Página | Rota |
+|---|---|
+| Home (filmes populares) | `/` |
+| Busca | `/busca` |
+| Detalhes do filme | `/filme/:id` |
+| Favoritos | `/favoritos` |
+| Sobre | `/sobre` |
+
+## Componentes e responsáveis
+
+> 👉 PREENCHER: troque os nomes pelos integrantes do grupo e ajuste a divisão, se necessário.
+
+| Integrante | Componentes | Descrição |
+|---|---|---|
+| Integrante 1 | `Header` | Menu de navegação com contador de favoritos |
+| | `SearchBar` | Campo de busca controlado |
+| Integrante 2 | `MovieCard` | Card com pôster, título, ano e nota |
+| | `MovieGrid` | Grade que renderiza a lista de cards |
+| Integrante 3 | `MovieDetails` | Conteúdo completo da página de detalhes |
+| | `FavoriteButton` | Botão de favoritar (coração) |
+| Integrante 4 | `Pagination` | Botões de página anterior e próxima |
+| | `StatusMessage` | Mensagem de carregamento ou de erro |
+
+## Hooks
+
+| Hook | Onde é usado |
+|---|---|
+| `useState` | Estados das páginas e componentes (filmes, página atual, carregamento, erro) |
+| `useEffect` | Buscas na API e escuta de eventos |
+| `useDebounce` (customizado) | Atrasa a busca até o usuário parar de digitar (`src/hooks/useDebounce.ts`) |
+| `useFavorites` (customizado) | Lê e grava os favoritos no `localStorage` (`src/hooks/useFavorites.ts`) |
+
+## Estrutura do projeto
 
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+src/
+├── components/   # componentes reutilizáveis
+├── hooks/        # hooks customizados
+├── pages/        # páginas (uma por rota)
+├── services/     # comunicação com a API do TMDB
+├── types/        # interfaces TypeScript
+├── App.tsx       # rotas
+└── main.tsx      # ponto de entrada
 ```
+
+## Telas
+
+> 👉 PREENCHER: salve os prints na pasta `docs/prints/` com estes nomes.
+
+### Home
+![Home](docs/prints/home.png)
+
+### Busca
+![Busca](docs/prints/busca.png)
+
+### Detalhes
+![Detalhes](docs/prints/detalhes.png)
+
+### Favoritos
+![Favoritos](docs/prints/favoritos.png)
+
+### Sobre
+![Sobre](docs/prints/sobre.png)
+
+## Deploy
+
+> 👉 OPCIONAL: se publicarem na Vercel ou Netlify, coloque o link aqui.
+
+## Créditos
+
+Este produto usa a API do TMDB, mas não é endossado ou certificado pelo TMDB.
